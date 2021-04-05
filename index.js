@@ -14,14 +14,6 @@ const prefix = '-';
 
 const fs = require('fs');
 
-bot.commands = new Discord.Collection();
-
-const commandFile = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'));
-
-for (const file of commandFile){
-    const command = require(`./commands/${file}`)
-    bot.commands.set(command.name, command);
-}
 
 var responses = [];
 var editComp = false;
