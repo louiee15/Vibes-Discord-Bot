@@ -749,4 +749,4 @@ bot.on('message', message => {
 })
 
 
-bot.login("ODI3MTIzMzY4NjQ0ODM3Mzg3.YGWcqg.nyK9XQx5jguTmVHmEeHBpCUPc_A")
+bot.login(process.env.DISCORD_TOKEN_ID)
