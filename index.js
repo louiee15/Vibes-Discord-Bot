@@ -18,7 +18,9 @@ const fs = require('fs');
 const express = require('express');
 var app     = express();
 
-const wakeUpDyno = require("wokeDyno.js");
+const fetch = require("node-fetch");
+
+const wakeUpDyno = require("./wokeDyno.js");
 
 
 const PORT = process.env.PORT;
