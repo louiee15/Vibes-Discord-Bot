@@ -23,7 +23,7 @@ const fetch = require("node-fetch");
 const wakeUpDyno = require("./wokeDyno.js");
 
 
-const PORT = process.env.PORT;
+const PORT = 5000;
 const DYNO_URL = "https://vibesdiscord-bot.herokuapp.com/";
 
 app.listen(PORT, () => {
