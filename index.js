@@ -15,8 +15,18 @@ const prefix = '-';
 const fs = require('fs');
 
 
-var express = require('express');
+const express = require('express');
 var app     = express();
+
+const wakeUpDyno = require("wokeDyno.js");
+
+
+const PORT = process.env.PORT;
+const DYNO_URL = "https://vibesdiscord-bot.herokuapp.com/";
+
+app.listen(PORT, () => {
+    wakeUpDyno(DYNO_URL); // will start once server starts
+})
 
 app.set('port', (process.env.PORT || 5000));
 
