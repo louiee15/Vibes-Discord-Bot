@@ -139,7 +139,7 @@ bot.on('message', message => {
 
         async function sendEmbed(){
 
-            const embedChannel = bot.channels.cache.get("827934211482583082")
+            const embedChannel = bot.channels.cache.get("820036372060307517")
 
             if (isNaN(responses[2])){
                 message.reply("The value you entered for the maximum players is not a number.\nTry again.")
@@ -220,7 +220,7 @@ bot.on('message', message => {
                                 if (editChoice == 1){
                                     oldTitle = newTitle
                                     newTitle = collected.array()[0].content
-                                    channel = bot.channels.cache.get("827934211482583082");
+                                    channel = bot.channels.cache.get("820036372060307517");
                                     channel.messages.fetch({limit : 100}).then(messages => {
                                         messages.forEach(msg => {
                                             for (var i = 0; i < msg.embeds.length; i++){
@@ -345,7 +345,7 @@ bot.on('message', message => {
         }
 
 
-        channel = bot.channels.cache.get("827934211482583082");
+        channel = bot.channels.cache.get("820036372060307517");
         channel.messages.fetch({limit : 100}).then(messages => {
             messages.forEach(msg => {
                 for (var i = 0; i < msg.embeds.length; i++){
@@ -416,7 +416,7 @@ bot.on('message', message => {
             }
 
 
-            channel = bot.channels.cache.get("827934211482583082");
+            channel = bot.channels.cache.get("820036372060307517");
             channel.messages.fetch({limit : 100}).then(messages => {
                 messages.forEach(msg => {
                     for (var i = 0; i < msg.embeds.length; i++){
@@ -483,7 +483,7 @@ bot.on('message', message => {
             }
 
 
-            channel = bot.channels.cache.get("827934211482583082");
+            channel = bot.channels.cache.get("820036372060307517");
             channel.messages.fetch({limit : 100}).then(messages => {
                 messages.forEach(msg => {
                     for (var i = 0; i < msg.embeds.length; i++){
@@ -683,7 +683,7 @@ bot.on('message', message => {
     }
     else if (command == 'editcomp'){
         if (message.member.roles.cache.some(r => r.name == "moderator")){
-            channel = bot.channels.cache.get("827934211482583082");
+            channel = bot.channels.cache.get("820036372060307517");
             channel.messages.fetch({limit : 100}).then(messages => {
                 messages.forEach(msg => {
                     for (var i = 0; i < msg.embeds.length; i++){
@@ -753,7 +753,7 @@ bot.on('message', message => {
     else if (command == 'endcomp'){
         if (message.member.roles.cache.some(r => r.name == "moderator")){
             if (args.join(' ') != null){
-                channel = bot.channels.cache.get("827934211482583082");
+                channel = bot.channels.cache.get("820036372060307517");
                 channel.messages.fetch({limit : 100}).then(messages => {
                     messages.forEach(msg => {
                         for (var i = 0; i < msg.embeds.length; i++){
