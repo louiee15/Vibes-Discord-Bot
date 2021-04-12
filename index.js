@@ -30,7 +30,7 @@ app.listen(PORT, () => {
     wakeUpDyno(DYNO_URL); // will start once server starts
 })
 
-app.set('port', (process.env.PORT || 5000));
+app.set('port', (process.env.PORT || 3000));
 
 //For avoidong Heroku $PORT error
 app.get('/', function(request, response) {
@@ -139,7 +139,7 @@ bot.on('message', message => {
 
         async function sendEmbed(){
 
-            const embedChannel = bot.channels.cache.get("820036372060307517")
+            const embedChannel = bot.channels.cache.get("827934211482583082")
 
             if (isNaN(responses[2])){
                 message.reply("The value you entered for the maximum players is not a number.\nTry again.")
@@ -220,7 +220,7 @@ bot.on('message', message => {
                                 if (editChoice == 1){
                                     oldTitle = newTitle
                                     newTitle = collected.array()[0].content
-                                    channel = bot.channels.cache.get("820036372060307517");
+                                    channel = bot.channels.cache.get("827934211482583082");
                                     channel.messages.fetch({limit : 100}).then(messages => {
                                         messages.forEach(msg => {
                                             for (var i = 0; i < msg.embeds.length; i++){
@@ -345,7 +345,7 @@ bot.on('message', message => {
         }
 
 
-        channel = bot.channels.cache.get("820036372060307517");
+        channel = bot.channels.cache.get("827934211482583082");
         channel.messages.fetch({limit : 100}).then(messages => {
             messages.forEach(msg => {
                 for (var i = 0; i < msg.embeds.length; i++){
@@ -380,6 +380,8 @@ bot.on('message', message => {
             function leaveComp(msg, embedToEdit){
 
                 newParticipants = embedToEdit.fields[3].value.replace(username,'')
+                newParticipants = newParticipants.replace(/(^[ \t]*\n)/gm, "")
+
 
                 try{
                     const newEmbed = new MessageEmbed()
@@ -414,7 +416,7 @@ bot.on('message', message => {
             }
 
 
-            channel = bot.channels.cache.get("820036372060307517");
+            channel = bot.channels.cache.get("827934211482583082");
             channel.messages.fetch({limit : 100}).then(messages => {
                 messages.forEach(msg => {
                     for (var i = 0; i < msg.embeds.length; i++){
@@ -444,6 +446,9 @@ bot.on('message', message => {
             function removeFromComp(msg, embedToEdit){
 
                 newParticipants = embedToEdit.fields[3].value.replace(username.slice(0, -1),'')
+                console.log(newParticipants)
+                newParticipants = newParticipants.replace(/(^[ \t]*\n)/gm, "")
+                console.log(newParticipants)
 
                 try{
                     const newEmbed = new MessageEmbed()
@@ -478,7 +483,7 @@ bot.on('message', message => {
             }
 
 
-            channel = bot.channels.cache.get("820036372060307517");
+            channel = bot.channels.cache.get("827934211482583082");
             channel.messages.fetch({limit : 100}).then(messages => {
                 messages.forEach(msg => {
                     for (var i = 0; i < msg.embeds.length; i++){
@@ -528,7 +533,7 @@ bot.on('message', message => {
             }
 
             for (i = 3; i < 10; i++){
-                if (leaderboard.length >= i){
+                if (leaderboard.length > i){
                     leaderboardString += `\n${i+1}th: ${leaderboard[i][0]} with ${leaderboard[i][1]} points!`
                 }
             }
@@ -678,7 +683,7 @@ bot.on('message', message => {
     }
     else if (command == 'editcomp'){
         if (message.member.roles.cache.some(r => r.name == "moderator")){
-            channel = bot.channels.cache.get("820036372060307517");
+            channel = bot.channels.cache.get("827934211482583082");
             channel.messages.fetch({limit : 100}).then(messages => {
                 messages.forEach(msg => {
                     for (var i = 0; i < msg.embeds.length; i++){
@@ -748,7 +753,7 @@ bot.on('message', message => {
     else if (command == 'endcomp'){
         if (message.member.roles.cache.some(r => r.name == "moderator")){
             if (args.join(' ') != null){
-                channel = bot.channels.cache.get("820036372060307517");
+                channel = bot.channels.cache.get("827934211482583082");
                 channel.messages.fetch({limit : 100}).then(messages => {
                     messages.forEach(msg => {
                         for (var i = 0; i < msg.embeds.length; i++){
