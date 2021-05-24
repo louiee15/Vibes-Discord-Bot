@@ -30,7 +30,6 @@ app.listen(PORT, () => {
     wakeUpDyno(DYNO_URL); // will start once server starts
 })
 
-
 app.set('port', (process.env.PORT || 5000));
 
 //For avoidong Heroku $PORT error
@@ -533,9 +532,9 @@ bot.on('message', message => {
                 leaderboardString = `🥇 ${leaderboard[0][0]} with ${leaderboard[0][1]} points!\n🥈 ${leaderboard[1][0]} with ${leaderboard[1][1]} points!\n🥉 ${leaderboard[2][0]} with ${leaderboard[2][1]} points!`
             }
 
-            for (i = 3; i < 10; i++){
+            for (i = 3; i < leaderboard.length; i++){
                 if (leaderboard.length > i){
-                    leaderboardString += `\n${i+1}th: ${leaderboard[i][0]} with ${leaderboard[i][1]} points!`
+                    leaderboardString += `\n${i+1}: ${leaderboard[i][0]} with ${leaderboard[i][1]} points!`
                 }
             }
 
@@ -689,6 +688,7 @@ bot.on('message', message => {
                 messages.forEach(msg => {
                     for (var i = 0; i < msg.embeds.length; i++){
                         if (args.join(' ') == msg.embeds[i].title){
+                            uniqueName = false
                             try{
                                 if (msg.embeds[i].fields[4].value != undefined){
                                     message.reply("You can not edit a competition which has already ended!")
@@ -698,6 +698,10 @@ bot.on('message', message => {
                                 editCompQuestions(msg, msg.embeds[i])
                             }
                         }
+                    }
+                    
+                    if (uniqueName == true){
+                        startcomp
                     }
     
                 });
@@ -781,4 +785,4 @@ bot.on('message', message => {
 })
 
 
-bot.login("ODI3MTIzMzY4NjQ0ODM3Mzg3.YGWcqg.qiiiOZ4qZ3fIr5mFOeYcrG5n_Uw")
+bot.login(process.env.DISCORD_TOKEN_ID)
