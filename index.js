@@ -785,4 +785,4 @@ bot.on('message', message => {
 })
 
 
-bot.login(process.env.DISCORD_TOKEN_ID)
+bot.login("ODI3MTIzMzY4NjQ0ODM3Mzg3.YGWcqg.sqOoIXxTIqikYWzB0xuNutj8Fj8")
